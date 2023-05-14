@@ -51,6 +51,50 @@ function App() {
     {romaji: 'n', hiragana: 'ん'}
   ]
 
+  const [input, setInput] = useState('')
+  const [current, setCurrent] = useState(0)
+
+  const [streak, setStreak] = useState(0)
+  const [maxStreak, setMaxStreak] = useState(0)
+
+  const [error, setError] = useState(false)
+
+  const setRandomHiragana = () => {
+    const randomIndex = Math.floor(Math.random() * hiragana.length)
+    setCurrent(randomIndex)
+  }
+
+  const handleChange = evt => {
+    setInput(evt.target.value)
+  }
+
+  const handleSubmit = evt => {
+    evt.preventDefault()
+
+    if (input.toLowerCase() === hiragana[current].romaji) {
+      setStreak(streak + 1)
+      setMaxStreak(Math.max(streak, maxStreak))
+      setError(false)
+
+      localStorage.setItem('maxStreak', Math.streak(streak, maxStreak))
+      localStorage.setItem('streak', streak)
+    } else {
+      setStreak(0)
+      setError(`Wrong! The correct answer for ${hiragana[current].hiragana} is ${hiragana[current].romaji}`)
+      
+      localStorage.setItem('streak', 0)
+    }
+
+    setInput('')
+    setRandomHiragana()
+  }
+  
+  useEffect(() => {
+    setRandomHiragana()
+    setStreak(localStorage.getItem('streak') || 0)
+    setMaxStreak(localStorage.getItem('maxStreak') || 0)
+  }, [])
+
   return (
       <div className="App">
         <h1>Hiragana Quiz</h1>
