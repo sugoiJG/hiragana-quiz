@@ -2,52 +2,52 @@ import { useState, useEffect } from 'react'
 
 function App() {
 	const hiragana = [
-		{ romanji: 'a', hiragana: 'あ' },
-		{ romanji: 'i', hiragana: 'い' },
-		{ romanji: 'u', hiragana: 'う' },
-		{ romanji: 'e', hiragana: 'え' },
-		{ romanji: 'o', hiragana: 'お' },
-		{ romanji: 'ka', hiragana: 'か' },
-		{ romanji: 'ki', hiragana: 'き' },
-		{ romanji: 'ku', hiragana: 'く' },
-		{ romanji: 'ke', hiragana: 'け' },
-		{ romanji: 'ko', hiragana: 'こ' },
-		{ romanji: 'sa', hiragana: 'さ' },
-		{ romanji: 'shi', hiragana: 'し' },
-		{ romanji: 'su', hiragana: 'す' },
-		{ romanji: 'se', hiragana: 'せ' },
-		{ romanji: 'so', hiragana: 'そ' },
-		{ romanji: 'ta', hiragana: 'た' },
-		{ romanji: 'chi', hiragana: 'ち' },
-		{ romanji: 'tsu', hiragana: 'つ' },
-		{ romanji: 'te', hiragana: 'て' },
-		{ romanji: 'to', hiragana: 'と' },
-		{ romanji: 'na', hiragana: 'な' },
-		{ romanji: 'ni', hiragana: 'に' },
-		{ romanji: 'nu', hiragana: 'ぬ' },
-		{ romanji: 'ne', hiragana: 'ね' },
-		{ romanji: 'no', hiragana: 'の' },
-		{ romanji: 'ha', hiragana: 'は' },
-		{ romanji: 'hi', hiragana: 'ひ' },
-		{ romanji: 'fu', hiragana: 'ふ' },
-		{ romanji: 'he', hiragana: 'へ' },
-		{ romanji: 'ho', hiragana: 'ほ' },
-		{ romanji: 'ma', hiragana: 'ま' },
-		{ romanji: 'mi', hiragana: 'み' },
-		{ romanji: 'mu', hiragana: 'む' },
-		{ romanji: 'me', hiragana: 'め' },
-		{ romanji: 'mo', hiragana: 'も' },
-		{ romanji: 'ya', hiragana: 'や' },
-		{ romanji: 'yu', hiragana: 'ゆ' },
-		{ romanji: 'yo', hiragana: 'よ' },
-		{ romanji: 'ra', hiragana: 'ら' },
-		{ romanji: 'ri', hiragana: 'り' },
-		{ romanji: 'ru', hiragana: 'る' },
-		{ romanji: 're', hiragana: 'れ' },
-		{ romanji: 'ro', hiragana: 'ろ' },
-		{ romanji: 'wa', hiragana: 'わ' },
-		{ romanji: 'wo', hiragana: 'を' },
-		{ romanji: 'n', hiragana: 'ん' }
+		{ romaji: 'a', hiragana: 'あ' },
+		{ romaji: 'i', hiragana: 'い' },
+		{ romaji: 'u', hiragana: 'う' },
+		{ romaji: 'e', hiragana: 'え' },
+		{ romaji: 'o', hiragana: 'お' },
+		{ romaji: 'ka', hiragana: 'か' },
+		{ romaji: 'ki', hiragana: 'き' },
+		{ romaji: 'ku', hiragana: 'く' },
+		{ romaji: 'ke', hiragana: 'け' },
+		{ romaji: 'ko', hiragana: 'こ' },
+		{ romaji: 'sa', hiragana: 'さ' },
+		{ romaji: 'shi', hiragana: 'し' },
+		{ romaji: 'su', hiragana: 'す' },
+		{ romaji: 'se', hiragana: 'せ' },
+		{ romaji: 'so', hiragana: 'そ' },
+		{ romaji: 'ta', hiragana: 'た' },
+		{ romaji: 'chi', hiragana: 'ち' },
+		{ romaji: 'tsu', hiragana: 'つ' },
+		{ romaji: 'te', hiragana: 'て' },
+		{ romaji: 'to', hiragana: 'と' },
+		{ romaji: 'na', hiragana: 'な' },
+		{ romaji: 'ni', hiragana: 'に' },
+		{ romaji: 'nu', hiragana: 'ぬ' },
+		{ romaji: 'ne', hiragana: 'ね' },
+		{ romaji: 'no', hiragana: 'の' },
+		{ romaji: 'ha', hiragana: 'は' },
+		{ romaji: 'hi', hiragana: 'ひ' },
+		{ romaji: 'fu', hiragana: 'ふ' },
+		{ romaji: 'he', hiragana: 'へ' },
+		{ romaji: 'ho', hiragana: 'ほ' },
+		{ romaji: 'ma', hiragana: 'ま' },
+		{ romaji: 'mi', hiragana: 'み' },
+		{ romaji: 'mu', hiragana: 'む' },
+		{ romaji: 'me', hiragana: 'め' },
+		{ romaji: 'mo', hiragana: 'も' },
+		{ romaji: 'ya', hiragana: 'や' },
+		{ romaji: 'yu', hiragana: 'ゆ' },
+		{ romaji: 'yo', hiragana: 'よ' },
+		{ romaji: 'ra', hiragana: 'ら' },
+		{ romaji: 'ri', hiragana: 'り' },
+		{ romaji: 'ru', hiragana: 'る' },
+		{ romaji: 're', hiragana: 'れ' },
+		{ romaji: 'ro', hiragana: 'ろ' },
+		{ romaji: 'wa', hiragana: 'わ' },
+		{ romaji: 'wo', hiragana: 'を' },
+		{ romaji: 'n', hiragana: 'ん' }
 	]
 
 	const [input, setInput] = useState('')
@@ -70,7 +70,7 @@ function App() {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		 
-		if (input.toLowerCase() === hiragana[current].romanji) {
+		if (input.toLowerCase() === hiragana[current].romaji) {
 			setStreak(streak + 1)
 			setMaxStreak(streak + 1 > maxStreak ? streak + 1 : maxStreak)
 			setError(false)
@@ -79,7 +79,7 @@ function App() {
 			localStorage.setItem('maxStreak', streak + 1 > maxStreak ? streak + 1 : maxStreak)
 		} else {
 			const h = hiragana[current].hiragana
-			const r = hiragana[current].romanji
+			const r = hiragana[current].romaji
 			setError(`Wrong! The correct answer for ${h} is ${r}`)
 			setStreak(0)
 			localStorage.setItem('streak', 0)
@@ -96,7 +96,7 @@ function App() {
 	}, [])
 
 	return (
-		<div className="min-h-screen bg-slate-800 text-white text-center">
+		<div className="min-h-screen bg-purple-900 text-white text-center">
 			<header className="p-6 mb-8">
 				<h1 className="text-2xl font-bold uppercase">Hiragana Quiz</h1>
 				<div>
